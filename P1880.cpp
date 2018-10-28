@@ -8,6 +8,14 @@ const int maxn=200;
 int dp[maxn][maxn]={0};
 int n,arr[maxn],sum[maxn];
 
+/*
+因为题中为环形序列，所以将arr[0]~arr[n-1]复制到arr[n]~arr[2*n-1]以破环成链。
+dp[i][j]表示合并从arr[i]到arr[j]（包括arr[i]与arr[j]）的石子为一堆的最大（最小）得分，
+其状态转移方程为dp[i][j]=max{dp[i][k]+dp[k+1][j]+d(i,j))
+其中0<=i<=k<j<n
+d(i,j)表示从i到j的石子数量之和（包括i和j）
+*/
+
 void GetMax(int i,int j)
 {
     if(j-i==1)
@@ -23,11 +31,11 @@ void GetMax(int i,int j)
     int max=-1,temp;
     for(int k=i;k<j;k++)
     {
-        if(dp[i][k]<0)//dp[i[[k]==0
+        if(dp[i][k]<0)
         {
             GetMax(i,k);
         }
-        if(dp[k+1][j]<0)//dp[k+1][j]==0
+        if(dp[k+1][j]<0)
         {
             GetMax(k+1,j);
         }

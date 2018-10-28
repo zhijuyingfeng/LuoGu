@@ -8,6 +8,12 @@ const int maxn=100;
 int n;
 int arr[maxn],LIS[maxn],LDS[maxn];
 
+/*
+LIS[i]表示以arr[i]为最后一个元素的最长上升序列（不一定是整个数组的最长上升序列）
+LDS[i]表示以arr[1]为最后一个元素的最长上升序列（从数组尾部开始计算，而LIS[i]是从数组头部开始计算）
+则LIS[i]+LDS[i]-1表示以arr[i]为子序列中最大的数时，子序列最多可有多少个元素
+*/
+
 void GetLIS()
 {
     for(int i=0;i<n;i++)
