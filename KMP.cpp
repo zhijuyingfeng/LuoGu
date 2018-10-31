@@ -11,7 +11,7 @@ void GetNext(char* P, int next[])
     int len=strlen(P);
     int i=0,j=-1;
     next[0]=-1;
-    while(i<len)
+    while(i<len-1)
     {
         if(j==-1||P[i]==P[j])
         {
