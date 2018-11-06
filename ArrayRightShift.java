@@ -13,7 +13,7 @@ public class Main
     }
 
     /*
-    three streps:
+    three steps:
     1. reverse the whole array
     2. reverse the front k elements
     3. reverse the rear n-k elements
