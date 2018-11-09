@@ -2,11 +2,11 @@
 #include <cstring>
 using namespace std;
 
-const int maxn=8;
+const int maxn=800;
 char InOrder[maxn];
 char PreOrder[maxn];
-int *weight;
-int No=0;
+int *weight;//count the weight of vertex
+int No=0;//Number in the PreOrder sequence
 
 int Recur(int L,int R)
 {
@@ -19,15 +19,15 @@ int Recur(int L,int R)
     int temp=No;
     int temp1,temp2;
     No++;
-    if(i!=L)
+    if(i!=L)//If it has left child, go left
         temp1=Recur(L,i-1);
     else
         temp1=0;
-    if(i!=R)
+    if(i!=R)//If it has right child, go right
         temp2=Recur(i+1,R);
     else
         temp2=0;
-    if(i==L&&i==R)
+    if(i==L&&i==R)//leaf vertex
     {
         weight[temp]=1;
         return 1;
