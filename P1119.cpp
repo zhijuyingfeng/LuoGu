@@ -1,19 +1,11 @@
 #include <iostream>
-#include <cstdlib>
-#include <cstdio>
 #include <cstring>
-#include <queue>
-#include <stack>
-#include <vector>
-#include <string>
 #include <algorithm>
 using namespace std;
 
 const int maxn=200;
-const int infinity=0x7fffffff;
 int N,M;
 int T[maxn]={0};
-int Graph[maxn][maxn];
 bool repaired[maxn]={0};
 int dist[maxn][maxn];
 
@@ -45,17 +37,13 @@ int main()
     }
     for(int i=0;i<maxn;i++)
     {
-        memset(Graph[i],0xff,sizeof(int)*maxn);
         memset(dist[i],0xff,sizeof(int)*maxn);
         dist[i][i]=0;
-        Graph[i][i]=0;
     }
     int from,to,weight;
     for(int i=0;i<M;i++)
     {
         cin>>from>>to>>weight;
-        Graph[from][to]=weight;
-        Graph[to][from]=weight;
         dist[from][to]=weight;
         dist[to][from]=weight;
     }
