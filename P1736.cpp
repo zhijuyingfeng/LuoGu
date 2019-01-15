@@ -10,9 +10,9 @@ int main()
     cin>>n>>m;
     bool **arr=new bool*[n];
     int **dp=new int*[n];
-    int *row1=new int[n];
-    int *row2=new int[n];
-    int *column=new int[m];
+    int *row1=new int[n];//表示第i行的上一个1出现的位置
+    int *row2=new int[n];//表示第i行下一个1出现的位置
+    int *column=new int[m];//表示第j列上一个1出现的位置
     memset(row1,-1,sizeof(int)*n);
     memset(row2,-1,sizeof(int)*n);
     memset(column,-1,sizeof(int)*m);
